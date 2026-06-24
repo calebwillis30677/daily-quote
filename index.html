@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Daily Dad Joke</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    text-align: center;
+  }
+  #joke {
+    font-size: 22px;
+    font-style: italic;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Dad Joke of the Day</h2>
+<div id="joke">Loading...</div>
+
+<script>
+fetch("https://api.api-ninjas.com/v1/dadjokes", {
+  headers: { "X-Api-Key": "NdqebAhZ1P9rfqcinYOOJGunTgg5Q0nIsERKTDKk" }
+})
+.then(response => response.json())
+.then(data => {
+  document.getElementById("joke").innerText = data[0].joke;
+});
+</script>
+
+</body>
+</html>
